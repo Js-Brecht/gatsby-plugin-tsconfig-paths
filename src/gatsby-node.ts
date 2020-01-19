@@ -1,7 +1,6 @@
 import path from 'path';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import { PluginOptions, ValidPluginOptions, WebpackConfigFn } from './types';
-import { CreateWebpackConfigArgs, PluginOptions as GatsbyPluginOptions } from 'gatsby';
 import { omitKeys } from './utils';
 
 /**
