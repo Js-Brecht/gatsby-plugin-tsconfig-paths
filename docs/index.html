@@ -1,0 +1,238 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>gatsby-plugin-tsconfig-paths</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/main.plus.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">gatsby-plugin-tsconfig-paths</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>gatsby-plugin-tsconfig-paths</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#tsconfig-paths-plugin-for-gatsby" id="tsconfig-paths-plugin-for-gatsby" style="color: inherit; text-decoration: none;">
+					<h1>TSConfig Paths plugin for Gatsby</h1>
+				</a>
+				<a href="#description" id="description" style="color: inherit; text-decoration: none;">
+					<h2>Description</h2>
+				</a>
+				<p>This plugin will provide support for paths configured in your tsconfig by using
+				<code>tsconfig-paths-webpack-plugin</code>.</p>
+				<hr>
+				<a href="#how-to-install" id="how-to-install" style="color: inherit; text-decoration: none;">
+					<h2>How to install</h2>
+				</a>
+				<ul>
+					<li>Install <code>tsconfig-paths-webpack-plugin</code> in your project</li>
+				</ul>
+				<pre><code class="language-shell">npm install -D tsconfig-paths-webpack-plugin</code></pre>
+				<ul>
+					<li>Include the plugin in your <code>gatsby-config.js</code>.</li>
+				</ul>
+				<pre><code class="language-js"><span class="hljs-comment">// gatsby-config.js</span>
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">plugins</span>: [
+    ...,
+    <span class="hljs-string">`gatsby-plugin-tsconfig-paths`</span>
+  ]
+}</code></pre>
+				<ul>
+					<li>Configure using any of <code>tsconfig-paths-webpack-plugin</code>&#39;s options</li>
+				</ul>
+				<hr>
+				<a href="#available-options" id="available-options" style="color: inherit; text-decoration: none;">
+					<h2>Available Options</h2>
+				</a>
+				<ul>
+					<li>For list of <code>options</code> that are available for this plugin, see the
+					<code>tsconfig-paths-webpack-plugin</code> documentation at the following:</li>
+				</ul>
+				<blockquote>
+					<p><a href="https://github.com/dividab/tsconfig-paths-webpack-plugin#options">https://github.com/dividab/tsconfig-paths-webpack-plugin#options</a></p>
+				</blockquote>
+				<p>for example:</p>
+				<pre><code class="language-js"><span class="hljs-comment">// gatsby-config.js</span>
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">plugins</span>: [
+    ...,
+    {
+      <span class="hljs-attr">resolve</span>: <span class="hljs-string">`gatsby-plugin-tsconfig-paths`</span>,
+      <span class="hljs-attr">options</span>: {
+        <span class="hljs-attr">configFile</span>: <span class="hljs-string">`<span class="hljs-subst">${__dirname}</span>/tsconfig.json`</span>,
+        <span class="hljs-attr">silent</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">colors</span>: <span class="hljs-literal">false</span>
+      }
+  ]
+}</code></pre>
+				<a href="#default-options" id="default-options" style="color: inherit; text-decoration: none;">
+					<h2>Default options</h2>
+				</a>
+				<ul>
+					<li><code>configFile</code>: Defaults to the <code>tsconfig.json</code> located at your process&#39;s
+					current working directory.</li>
+					<li><code>extensions</code>: Defaults to [&#39;.ts&#39;, &#39;.tsx&#39;, &#39;.js&#39;, &#39;.jsx&#39;].</li>
+				</ul>
+				<a href="#additional-information" id="additional-information" style="color: inherit; text-decoration: none;">
+					<h2>Additional information</h2>
+				</a>
+				<p>According to the documentation for <code>tsconfig-paths-webpack-plugin</code>, if
+					the tsconfig option <code>allowJs</code> is set, then this plugin&#39;s <code>extensions</code> option should
+					be set to match <code>webpack</code>&#39;s.  Because typescript transpiling is usually done
+					in the same set of loaders as javascript, this plugin will set the webpack
+					extensions to match the default described above, using the <code>resolvableExtensions</code>
+				endpoint.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li><a href="index.html" class="title">README</a></li>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/pluginoptions.html" class="tsd-kind-icon">Plugin<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#valuesof" class="tsd-kind-icon">Values<wbr>Of</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#webpackconfigfn" class="tsd-kind-icon">Webpack<wbr>Config<wbr>Fn</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#validpluginoptions" class="tsd-kind-icon">Valid<wbr>Plugin<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-private">
+						<a href="globals.html#omitkeys" class="tsd-kind-icon">omit<wbr>Keys</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#oncreatewebpackconfig" class="tsd-kind-icon">on<wbr>Create<wbr>Webpack<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#resolvableextensions" class="tsd-kind-icon">resolvable<wbr>Extensions</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
