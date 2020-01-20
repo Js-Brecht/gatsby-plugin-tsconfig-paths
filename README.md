@@ -9,10 +9,10 @@ This plugin will provide support for paths configured in your tsconfig by using
 
 ## How to install
 
-* Install `tsconfig-paths-webpack-plugin` in your project
+* Install `gatsby-plugin-tsconfig-paths` in your project
 
 ```shell
-npm install -D tsconfig-paths-webpack-plugin
+npm install -D gatsby-plugin-tsconfig-paths
 ```
 
 * Include the plugin in your `gatsby-config.js`.
@@ -27,7 +27,7 @@ module.exports = {
 }
 ```
 
-* Configure using any of `tsconfig-paths-webpack-plugin`'s options
+* Configure using any of [`tsconfig-paths-webpack-plugin`'s](https://github.com/dividab/tsconfig-paths-webpack-plugin#options) options
 
 ---
 
