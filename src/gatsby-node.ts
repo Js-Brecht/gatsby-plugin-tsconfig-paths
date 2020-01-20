@@ -1,5 +1,6 @@
 import path from 'path';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
+import { CreateWebpackConfigArgs } from 'gatsby';
 import { PluginOptions, ValidPluginOptions, WebpackConfigFn } from './types';
 import { omitKeys } from './utils';
 
@@ -25,40 +26,40 @@ export const resolvableExtensions = (): string[] => [".ts", ".tsx", ".js", ".jsx
  * * `configFile` will be set to the tsconfig.json found in the process's current working directory.
  * * `extensions` will match `resolvableExtensions()` from this plugin/
  * @param {CreateWebpackConfigArgs} actions The actions passed in by Gatsby
- * @param {PluginOptions & GatsbyPluginOptions} pluginOptions The plugin options defined by the user
+ * @param {PluginOptions} pluginOptions The plugin options defined by the user
  */
-export const onCreateWebpackConfig: WebpackConfigFn = ({ stage, actions }, pluginOptions): void => {
-	const defaultOptions: Partial<PluginOptions> = {
-		configFile: path.join(process.cwd(), 'tsconfig.json'),
-		extensions: resolvableExtensions()
-	}
+export const onCreateWebpackConfig: WebpackConfigFn = ({ stage, actions }: CreateWebpackConfigArgs, pluginOptions?: PluginOptions): void => {
+    const defaultOptions: Partial<PluginOptions> = {
+        configFile: path.join(process.cwd(), 'tsconfig.json'),
+        extensions: resolvableExtensions(),
+    };
 
-	if (pluginOptions) {
-		const excludeOptions = Object.keys(pluginOptions).filter((key) => !(ValidPluginOptions as string[]).includes(key));
-		// Omit keys that are not going to be used by tsconfig-paths-webpack-plugin
-		pluginOptions = omitKeys(pluginOptions, ...(excludeOptions as unknown as (keyof PluginOptions)[]));
-	}
+    if (pluginOptions) {
+        const excludeOptions = Object.keys(pluginOptions).filter((key) => !(ValidPluginOptions as string[]).includes(key));
+        // Omit keys that are not going to be used by tsconfig-paths-webpack-plugin
+        pluginOptions = omitKeys(pluginOptions, ...(excludeOptions as unknown as (keyof PluginOptions)[]));
+    }
 
-	// Compile the loader options.  If additional options are included
-	// by the end user, then override the defaults with them.
-	const options = Object.assign(
-		{},
-		defaultOptions,
-		pluginOptions,
-	);
+    // Compile the loader options.  If additional options are included
+    // by the end user, then override the defaults with them.
+    const options = Object.assign(
+        {},
+        defaultOptions,
+        pluginOptions,
+    );
 
-	switch (stage) {
-		case "build-javascript":
-		case "build-html":
-		case "develop": {
-			actions.setWebpackConfig({
-				resolve: {
-					plugins: [
-						new TsconfigPathsPlugin(options),
-					],
-				},
-			});
-			break;
-		}
-	}
+    switch (stage) {
+        case "build-javascript":
+        case "build-html":
+        case "develop": {
+            actions.setWebpackConfig({
+                resolve: {
+                    plugins: [
+                        new TsconfigPathsPlugin(options),
+                    ],
+                },
+            });
+            break;
+        }
+    }
 };
