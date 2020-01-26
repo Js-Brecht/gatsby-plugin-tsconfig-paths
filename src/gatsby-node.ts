@@ -28,7 +28,7 @@ export const resolvableExtensions = (): string[] => [".ts", ".tsx", ".js", ".jsx
  * @param {CreateWebpackConfigArgs} actions The actions passed in by Gatsby
  * @param {PluginOptions} pluginOptions The plugin options defined by the user
  */
-export const onCreateWebpackConfig: WebpackConfigFn = ({ stage, actions }: CreateWebpackConfigArgs, pluginOptions?: PluginOptions): void => {
+export const onCreateWebpackConfig: WebpackConfigFn = ({ actions }: CreateWebpackConfigArgs, pluginOptions?: PluginOptions): void => {
     const defaultOptions: Partial<PluginOptions> = {
         configFile: path.join(process.cwd(), 'tsconfig.json'),
         extensions: resolvableExtensions(),
@@ -48,18 +48,11 @@ export const onCreateWebpackConfig: WebpackConfigFn = ({ stage, actions }: Creat
         pluginOptions,
     );
 
-    switch (stage) {
-        case "build-javascript":
-        case "build-html":
-        case "develop": {
-            actions.setWebpackConfig({
-                resolve: {
-                    plugins: [
-                        new TsconfigPathsPlugin(options),
-                    ],
-                },
-            });
-            break;
-        }
-    }
+    actions.setWebpackConfig({
+        resolve: {
+            plugins: [
+                new TsconfigPathsPlugin(options),
+            ],
+        },
+    });
 };
