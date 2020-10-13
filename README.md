@@ -51,7 +51,8 @@ module.exports = {
         configFile: `${__dirname}/tsconfig.json`,
         silent: true,
         colors: false
-      }
+      },
+    }
   ]
 }
 ```
