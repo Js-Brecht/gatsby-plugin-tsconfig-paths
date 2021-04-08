@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-tsconfig-paths",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Adds support for tsconfig paths to Gatsby build process",
   "main": "index.js",
   "repository": {
@@ -30,10 +30,12 @@
   ],
   "scripts": {
     "purge": "rimraf node_modules && npm run clean",
-    "clean": "rimraf ./gatsby-node.* types.*",
-    "build": "ttsc",
-    "build:watch": "run-s \"build -- -w\"",
+    "clean": "rimraf ./dist/*",
+    "build": "run-s clean build:exec",
+    "build:exec": "ttsc",
+    "build:watch": "run-s clean \"build:exec -- -w\"",
     "build:prod": "run-s build typedoc",
+    "prepublishOnly": "run-s build:prod",
     "typedoc": "typedoc --options typedoc.config.js"
   },
   "peerDependencies": {
