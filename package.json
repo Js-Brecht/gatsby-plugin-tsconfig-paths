@@ -37,7 +37,7 @@
     "typedoc": "typedoc --options typedoc.config.js"
   },
   "peerDependencies": {
-    "gatsby": "~2.x.x"
+    "gatsby": "~2.x.x || ~3.x.x"
   },
   "dependencies": {
     "tsconfig-paths-webpack-plugin": "^3.2.0"
