@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-tsconfig-paths",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Adds support for tsconfig paths to Gatsby build process",
   "main": "index.js",
   "repository": {
@@ -39,7 +39,7 @@
     "typedoc": "typedoc --options typedoc.config.js"
   },
   "peerDependencies": {
-    "gatsby": "~2.x.x || ~4.x.x"
+    "gatsby": "~2.x.x || ~3.x.x || ~4.x.x"
   },
   "dependencies": {
     "tsconfig-paths-webpack-plugin": "^3.2.0"
