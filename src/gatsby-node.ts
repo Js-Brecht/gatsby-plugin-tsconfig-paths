@@ -1,8 +1,8 @@
-import path from 'path';
-import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
-import { CreateWebpackConfigArgs } from 'gatsby';
-import { PluginOptions, ValidPluginOptions, WebpackConfigFn } from './types';
-import { omitKeys } from './utils';
+import path from "path";
+import pick from "lodash/pick";
+import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
+import { CreateWebpackConfigArgs } from "gatsby";
+import { PluginOptions, ValidPluginOptions, WebpackConfigFn } from "./types";
 
 /**
  * These are the lists of extensions for this plugin to process
@@ -16,7 +16,12 @@ import { omitKeys } from './utils';
  *
  * @returns {string[]} Array of valid file extensions
  */
-export const resolvableExtensions = (): string[] => [".ts", ".tsx", ".js", ".jsx"];
+export const resolvableExtensions = (): string[] => [
+	".ts",
+	".tsx",
+	".js",
+	".jsx",
+];
 
 /**
  * Sets up the webpack configuration to use `tsconfig-paths-webpack-plugin`, which will
@@ -27,32 +32,29 @@ export const resolvableExtensions = (): string[] => [".ts", ".tsx", ".js", ".jsx
  * * `extensions` will match `resolvableExtensions()` from this plugin/
  * @param {CreateWebpackConfigArgs} actions The actions passed in by Gatsby
  * @param {PluginOptions} pluginOptions The plugin options defined by the user
+ * @internal
  */
-export const onCreateWebpackConfig: WebpackConfigFn = ({ actions }: CreateWebpackConfigArgs, pluginOptions?: PluginOptions): void => {
-    const defaultOptions: Partial<PluginOptions> = {
-        configFile: path.join(process.cwd(), 'tsconfig.json'),
-        extensions: resolvableExtensions(),
-    };
+export const onCreateWebpackConfig: WebpackConfigFn = (
+	{ actions }: CreateWebpackConfigArgs,
+	pluginOptions?: PluginOptions,
+): void => {
+	const defaultOptions: Partial<PluginOptions> = {
+		configFile: path.join(process.cwd(), "tsconfig.json"),
+		extensions: resolvableExtensions(),
+	};
 
-    if (pluginOptions) {
-        const excludeOptions = Object.keys(pluginOptions).filter((key) => !(ValidPluginOptions as string[]).includes(key));
-        // Omit keys that are not going to be used by tsconfig-paths-webpack-plugin
-        pluginOptions = omitKeys(pluginOptions, ...(excludeOptions as unknown as (keyof PluginOptions)[]));
-    }
+	if (pluginOptions) {
+		// Omit keys that are not going to be used by tsconfig-paths-webpack-plugin
+		pluginOptions = pick(pluginOptions, ...ValidPluginOptions);
+	}
 
-    // Compile the loader options.  If additional options are included
-    // by the end user, then override the defaults with them.
-    const options = Object.assign(
-        {},
-        defaultOptions,
-        pluginOptions,
-    );
+	// Compile the loader options.  If additional options are included
+	// by the end user, then override the defaults with them.
+	const options = Object.assign({}, defaultOptions, pluginOptions);
 
-    actions.setWebpackConfig({
-        resolve: {
-            plugins: [
-                new TsconfigPathsPlugin(options),
-            ],
-        },
-    });
+	actions.setWebpackConfig({
+		resolve: {
+			plugins: [new TsconfigPathsPlugin(options)],
+		},
+	});
 };
