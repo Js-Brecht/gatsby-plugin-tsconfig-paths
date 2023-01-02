@@ -62,7 +62,12 @@
     ]
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "./",
+    "./gatsby-node.js"
   ],
-  "exclude": []
+  "exclude": [
+    "node_modules",
+    "dist",
+  ]
 }

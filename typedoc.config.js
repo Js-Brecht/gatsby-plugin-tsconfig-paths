@@ -1,15 +1,24 @@
-const path = require('path');
+const path = require("path");
 
 const themePath = path.resolve(path.join(".", "theme"));
 
+/**
+ * @type {import("typedoc").TypeDocOptions}
+ */
 module.exports = {
-	"out": "docs",
-	"target": "es6",
-	"theme": themePath,
-	"readme": "README.md",
-	"mode": "file",
-	"hideGenerator": true,
-	"excludeExternals": true,
-	"excludePrivate": true,
-	"excludeNotExported": true,
+	entryPoints: ["./src/types.ts", "./src/gatsby-node.ts"],
+	out: "docs",
+	compilerOptions: {
+		target: "es6",
+	},
+	theme: "hierarchy",
+	readme: "README.md",
+	// mode: "file",
+	searchInComments: true,
+	hideGenerator: true,
+	excludeNotDocumented: true,
+	excludeExternals: true,
+	excludeInternal: true,
+	excludeProtected: false,
+	excludePrivate: true,
 };

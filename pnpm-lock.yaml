@@ -16,6 +16,7 @@ specifiers:
   tsconfig-paths-webpack-plugin: ^3.5.2
   ttypescript: ^1.5.15
   typedoc: ^0.23.23
+  typedoc-theme-hierarchy: ^3.0.2
   typescript: ^4.9.4
 
 dependencies:
@@ -36,6 +37,7 @@ devDependencies:
   ts-transformer-keys: 0.4.4_typescript@4.9.4
   ttypescript: 1.5.15_z6wznmtyb6ovnulj6iujpct7um
   typedoc: 0.23.23_typescript@4.9.4
+  typedoc-theme-hierarchy: 3.0.2_typedoc@0.23.23
   typescript: 4.9.4
 
 packages:
@@ -12626,6 +12628,15 @@ packages:
 
   /typedarray/0.0.6:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
+    dev: true
+
+  /typedoc-theme-hierarchy/3.0.2_typedoc@0.23.23:
+    resolution: {integrity: sha512-aTVV3bpnVTmBwQi+kfV6IaknIzZZbiFcQhxCHZhCsxzntnPLQiaEQ/o7WldQ40u+NajgGJK+oVFaOf/eimt1TA==}
+    peerDependencies:
+      typedoc: ^0.23.6
+    dependencies:
+      fs-extra: 10.1.0
+      typedoc: 0.23.23_typescript@4.9.4
     dev: true
 
   /typedoc/0.23.23_typescript@4.9.4:
