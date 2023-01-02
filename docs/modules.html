@@ -12,69 +12,13 @@
 <div class="col-8 col-content">
 <div class="tsd-page-title">
 <h2>gatsby-plugin-tsconfig-paths</h2></div>
-<div class="tsd-panel tsd-typography">
-<a href="#tsconfig-paths-plugin-for-gatsby" id="tsconfig-paths-plugin-for-gatsby" style="color: inherit; text-decoration: none;">
-  <h1>TSConfig Paths plugin for Gatsby</h1>
-</a>
-
-<a href="#description" id="description" style="color: inherit; text-decoration: none;">
-  <h2>Description</h2>
-</a>
-<p>This plugin will provide support for paths configured in your tsconfig by using
-<code>tsconfig-paths-webpack-plugin</code>.</p>
-<hr>
-
-<a href="#how-to-install" id="how-to-install" style="color: inherit; text-decoration: none;">
-  <h2>How to install</h2>
-</a>
-<ul>
-<li>Install <code>gatsby-plugin-tsconfig-paths</code> in your project</li>
-</ul>
-<pre><code class="language-shell"><span class="hl-0">npm install -D gatsby-plugin-tsconfig-paths</span>
-</code></pre>
-<ul>
-<li>Include the plugin in your <code>gatsby-config.js</code>.</li>
-</ul>
-<pre><code class="language-js"><span class="hl-1">// gatsby-config.js</span><br/><span class="hl-2">module</span><span class="hl-0">.</span><span class="hl-2">exports</span><span class="hl-0"> = {</span><br/><span class="hl-0">  </span><span class="hl-3">plugins:</span><span class="hl-0"> [</span><br/><span class="hl-0">    ...,</span><br/><span class="hl-0">    </span><span class="hl-4">`gatsby-plugin-tsconfig-paths`</span><br/><span class="hl-0">  ]</span><br/><span class="hl-0">}</span>
-</code></pre>
-<ul>
-<li>Configure using any of <a href="https://github.com/dividab/tsconfig-paths-webpack-plugin#options"><code>tsconfig-paths-webpack-plugin</code>&#39;s</a> options</li>
-</ul>
-<hr>
-
-<a href="#available-options" id="available-options" style="color: inherit; text-decoration: none;">
-  <h2>Available Options</h2>
-</a>
-<ul>
-<li>For list of <code>options</code> that are available for this plugin, see the
-<code>tsconfig-paths-webpack-plugin</code> documentation at the following:</li>
-</ul>
-<blockquote>
-<p><a href="https://github.com/dividab/tsconfig-paths-webpack-plugin#options">https://github.com/dividab/tsconfig-paths-webpack-plugin#options</a></p>
-</blockquote>
-<p>for example:</p>
-<pre><code class="language-js"><span class="hl-1">// gatsby-config.js</span><br/><span class="hl-2">module</span><span class="hl-0">.</span><span class="hl-2">exports</span><span class="hl-0"> = {</span><br/><span class="hl-0">  </span><span class="hl-3">plugins:</span><span class="hl-0"> [</span><br/><span class="hl-0">    ...,</span><br/><span class="hl-0">    {</span><br/><span class="hl-0">      </span><span class="hl-3">resolve:</span><span class="hl-0"> </span><span class="hl-4">`gatsby-plugin-tsconfig-paths`</span><span class="hl-0">,</span><br/><span class="hl-0">      </span><span class="hl-3">options:</span><span class="hl-0"> {</span><br/><span class="hl-0">        </span><span class="hl-3">configFile:</span><span class="hl-0"> </span><span class="hl-4">`</span><span class="hl-5">${</span><span class="hl-3">__dirname</span><span class="hl-5">}</span><span class="hl-4">/tsconfig.json`</span><span class="hl-0">,</span><br/><span class="hl-0">        </span><span class="hl-3">silent:</span><span class="hl-0"> </span><span class="hl-5">true</span><span class="hl-0">,</span><br/><span class="hl-0">        </span><span class="hl-3">colors:</span><span class="hl-0"> </span><span class="hl-5">false</span><br/><span class="hl-0">      },</span><br/><span class="hl-0">    }</span><br/><span class="hl-0">  ]</span><br/><span class="hl-0">}</span>
-</code></pre>
-
-<a href="#default-options" id="default-options" style="color: inherit; text-decoration: none;">
-  <h2>Default options</h2>
-</a>
-<ul>
-<li><code>configFile</code>: Defaults to the <code>tsconfig.json</code> located at your process&#39;s
-current working directory.</li>
-<li><code>extensions</code>: Defaults to [&#39;.ts&#39;, &#39;.tsx&#39;, &#39;.js&#39;, &#39;.jsx&#39;].</li>
-</ul>
-
-<a href="#additional-information" id="additional-information" style="color: inherit; text-decoration: none;">
-  <h2>Additional information</h2>
-</a>
-<p>According to the documentation for <code>tsconfig-paths-webpack-plugin</code>, if
-the tsconfig option <code>allowJs</code> is set, then this plugin&#39;s <code>extensions</code> option should
-be set to match <code>webpack</code>&#39;s.  Because typescript transpiling is usually done
-in the same set of loaders as javascript, this plugin will set the webpack
-extensions to match the default described above, using the <code>resolvableExtensions</code>
-endpoint.</p>
-</div></div>
+<section class="tsd-panel-group tsd-index-group">
+<section class="tsd-panel tsd-index-panel">
+<h3 class="tsd-index-heading uppercase">Index</h3>
+<section class="tsd-index-section">
+<h3 class="tsd-index-heading">Modules</h3>
+<div class="tsd-index-list"><a href="modules/gatsby_node.html" class="tsd-index-link tsd-kind-module"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-4-path"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)" id="icon-4-text"></path></svg><span>gatsby-<wbr/>node</span></a>
+</div></section></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tree">
 <div class="tree-settings">
