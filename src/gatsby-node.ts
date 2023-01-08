@@ -1,8 +1,8 @@
 import path from 'path';
+import pick from "lodash/pick";
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import { CreateWebpackConfigArgs } from 'gatsby';
 import { PluginOptions, ValidPluginOptions, WebpackConfigFn } from './types';
-import { omitKeys } from './utils';
 
 /**
  * These are the lists of extensions for this plugin to process
@@ -37,7 +37,7 @@ export const onCreateWebpackConfig: WebpackConfigFn = ({ actions }: CreateWebpac
     if (pluginOptions) {
         const excludeOptions = Object.keys(pluginOptions).filter((key) => !(ValidPluginOptions as string[]).includes(key));
         // Omit keys that are not going to be used by tsconfig-paths-webpack-plugin
-        pluginOptions = omitKeys(pluginOptions, ...(excludeOptions as unknown as (keyof PluginOptions)[]));
+        pluginOptions = pick(pluginOptions, ...ValidPluginOptions) as PluginOptions;
     }
 
     // Compile the loader options.  If additional options are included
