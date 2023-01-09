@@ -1,0 +1,67 @@
+{
+  "gitFlowConfig": {
+    "masterBranch": "master",
+    "developBranch": "develop",
+    "featureBranchPrefix": "feature",
+    "bugfixBranchPrefix": "bugfix",
+    "releaseBranchPrefix": "release",
+    "hotfixBranchPrefix": "hotfix",
+    "supportBranchPrefix": "support",
+    "versionTagPrefix": null
+  },
+  "projectConfig": {
+    "projectPath": "./",
+    "autoStash": true,
+    "changelogFileName": "CHANGELOG.md",
+    "storeLatestChangelog": false,
+    "conventionalChangelogPresent": "angular",
+    "changelog": {
+      "type": "ConventionalChangelog",
+      "changelogFileName": "CHANGELOG.md",
+      "storeLatestChangelog": false,
+      "conventionalChangelogPresent": "angular"
+    },
+    "conventionalCommit": {
+      "referenceActions": [
+        "close",
+        "closes",
+        "closed",
+        "fix",
+        "fixes",
+        "fixed",
+        "resolve",
+        "resolves",
+        "resolved",
+        "refs",
+        "references",
+      ],
+      "noteKeywords": [
+        "BREAKING CHANGE",
+        "SECURITY",
+        "REMOVED"
+      ]
+      // *for all options visit documentation of conventional-commits-parser
+    },
+    "versionFile": "package.json",
+    "bumpVersionFiles": [
+      "package.json",
+      "package-lock.json",
+      "pnpm-lock.yaml"
+    ]
+  },
+  "log4jsConfig": {
+    "appenders": {
+      "console": {
+        "type": "console"
+      }
+    },
+    "categories": {
+      "default": {
+        "appenders": [
+          "console"
+        ],
+        "level": "info"
+      }
+    }
+  }
+}
